@@ -1,34 +1,57 @@
 <template>
-  <div>
-    <form class="container">
-      <div id="divSignin">
+  <div class="container">
+    <form >
+      <div id="divSignin" class="container">
         <div class="row">
           <h1 id="RegText">Sign Up</h1>
         </div>
-        <div class="row">
-          <label id="username" for="inputfname">Username:</label>
+        <br>
+        <div class="col-sm-4 my-sm-2">
+          <strong id="name" for="inputfname">Name:</strong>
+          <input
+            v-model="content.name"
+            class="form-control"
+            name="name"
+            placeholder="Enter Name"
+           
+            required
+          />
+        </div>
+
+        <div class="col-sm-4 my-sm-2">
+          <strong id="username" for="inputfname">Username:</strong>
           <input
             v-model="content.username"
             class="form-control"
             name="username"
             placeholder="Enter Username"
             required
-          >
+          />
         </div>
-        <br>
-        <div class="row">
-          <label id="email" for="inputEmail">Email:</label>
+
+        <div class="col-sm-4 my-sm-2">
+          <strong id="address" for="inputEmail">Address:</strong>
+          <input
+            required
+            type="text"
+            class="form-control"
+            v-model="content.address"
+            placeholder="Enter Address"
+          />
+        </div>
+        <div class="col-sm-4 my-sm-2">
+          <strong id="email" for="inputEmail">Email:</strong>
           <input
             required
             type="email"
             class="form-control"
             v-model="content.email"
             placeholder="Enter Email"
-          >
+          />
         </div>
-        <br>
-        <div class="row">
-          <label id="pass" for="inputPassword">Password:</label>
+
+        <div class="col-sm-4 my-sm-2">
+          <strong id="pass" for="inputPassword">Password:</strong>
           <input
             required
             type="password"
@@ -37,31 +60,30 @@
             name="password"
             id="inputPassword4"
             placeholder="Password"
-          >
-          <br>
-          <br>
-        </div>
-        <div class="row">
-          <label id="conpass" for="inputConPassword">Confirm Password:</label>
-          <input
-            v-model="content.conpassword"
-            required
-            type="password"
-            class="form-control"
-            id="inputConPassword"
-            placeholder="Confirm Password"
-          >
-          <span></span>
-          <br>
-          <br>
+          />
         </div>
 
-        <button id="btnSubmit" type="submit" class="btn btn-primary" @click="submit">
-          <h6>Register</h6>
-        </button>
+        <div class="col-sm-4 my-sm-2">
+            <label id="conpass" for="inputConPassword">Confirm Password:</label>
+            <input
+              v-model="content.conpassword"
+              required
+              type="password"
+              class="form-control"
+              id="inputConPassword"
+              placeholder="Confirm Password"
+            />
+          <span></span>
+        </div>
         <br>
-        <p>Already have an account?</p>
-        <router-link to="/Login">Login</router-link>
+        <center>
+        <button id="btnSubmit" type="submit" class="btn btn-primary" @click="submit">Register</button>
+        <br>
+        <br>
+        <a>Already have an account?&nbsp;</a>
+        <router-link to="/Login">Sign in</router-link>
+        </center>
+       
         <br>
       </div>
     </form>
@@ -77,7 +99,15 @@ h1 {
   color: $warning !important;
   font-weight: bold;
 }
+#name {
+  color: $warning !important;
+  font-weight: bold;
+}
 #pass {
+  color: $warning !important;
+  font-weight: bold;
+}
+#address {
   color: $warning !important;
   font-weight: bold;
 }
@@ -87,10 +117,13 @@ h1 {
 }
 #conpass {
   color: $warning !important;
-}
-p {
-  color: $warning !important;
   font-weight: bold;
+}
+a {
+  color: blue;
+  //color: $warning !important;
+  //font-weight: bold;
+  text-decoration: underline;
 }
 </style>
 
@@ -107,6 +140,7 @@ p {
   border-radius: 5px;
 }
 
+
 #RegText {
   width: 400px;
   background-color: #0086b3;
@@ -116,13 +150,27 @@ p {
   box-sizing: border-box;
 }
 
-input {
+.form-control {
+  width:350px;
   background: #ffffff;
-  border: 2px solid #000000;
+  border: 1px solid #000000;
   box-sizing: border-box;
   border-radius: 20px;
-  width: 350px;
+  margin: 0 auto;
+  float: none;
 }
+#btnSubmit {
+  border-radius: 25px;
+  border: 3px solid white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background: #0086b3;
+  width: 128px;
+  height: 52px;
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+}
+
 </style>
 
 <script>
